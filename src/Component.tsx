@@ -104,7 +104,7 @@ export function ForceFieldBackground({
   maxStroke = 6,
   spacing = 10,
   noiseScale = 0,
-  density = 2.0,
+  density = 0.5,
   invertImage = true,
   invertWireframe = true,
   magnifierEnabled = true,
@@ -315,8 +315,16 @@ export function ForceFieldBackground({
 
         // Mouse interaction
         // Use lerp for smooth movement of the 'magnifier' center
-        magnifierX = p.lerp(magnifierX, p.mouseX, magnifierInertia);
-        magnifierY = p.lerp(magnifierY, p.mouseY, magnifierInertia);
+        let mx = p.mouseX;
+let my = p.mouseY;
+
+if (p.touches.length > 0) {
+  mx = p.touches[0].x;
+  my = p.touches[0].y;
+}
+
+magnifierX = p.lerp(magnifierX, mx, magnifierInertia);
+magnifierY = p.lerp(magnifierY, my, magnifierInertia);
 
         applyForceField(magnifierX, magnifierY);
 
