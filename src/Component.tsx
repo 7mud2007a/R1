@@ -319,10 +319,10 @@ export function ForceFieldBackground({
 let my = p.mouseY;
 
 if (p.touches.length > 0) {
-  mx = p.touches[0].x;
-  my = p.touches[0].y;
+  const touch = p.touches[0] as unknown as { x: number; y: number };
+  mx = touch.x;
+  my = touch.y;
 }
-
 magnifierX = p.lerp(magnifierX, mx, magnifierInertia);
 magnifierY = p.lerp(magnifierY, my, magnifierInertia);
 
