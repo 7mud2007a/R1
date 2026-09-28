@@ -1,0 +1,8 @@
+{
+  "name": "force-field-background",
+  "description": "Interactive p5.js force field background component",
+  "dependencies": {
+    "p5": "^1.9.0",
+    "lucide-react": "^0.344.0"
+  }
+}
